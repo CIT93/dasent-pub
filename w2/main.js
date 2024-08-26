@@ -17,7 +17,7 @@ const RecycleItem = 16
 // 8. Total Annual Transportation
 const TransPortation = 14
 // 9. Total Points Earned
-const TtCarbonPoints = HhMember + HomeSize + FoodChoice + WaterIntake + HhItem + TrashItem + RecycleItem + TransPortation
+const tCarbonPoints = HhMember + HomeSize + FoodChoice + WaterIntake + HhItem + TrashItem + RecycleItem + TransPortation
 
 const myHeading = document.querySelector("h2");
 myHeading.textContent = "80";

@@ -20,7 +20,7 @@ const TransPortation = 14
 const tCarbonPoints = HhMember + HomeSize + FoodChoice + WaterIntake + HhItem + TrashItem + RecycleItem + TransPortation
 
 const myHeading = document.querySelector("h2");
-myHeading.textContent = "80";
+myHeading.textContent = tCarbonPoints;
 
 
 

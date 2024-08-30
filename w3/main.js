@@ -29,9 +29,8 @@
 
 let carbonHouseSizePoints = 0;
 
-function carbonHousePoints(houseSize)
-
-if (houseSize === "large house") {
+function carbonHousePoints(houseSize) {
+    if (houseSize === "large house") {
     carbonHouseSizePoints = carbonHouseSizePoints + 10;
 } else if (houseSize === "medium house") {
     carbonHouseSizePoints = carbonHouseSizePoints +7;
@@ -40,8 +39,9 @@ if (houseSize === "large house") {
 } else if (houseSize === "apartment") {
     carbonHouseSizePoints = carbonHouseSizePoints +2;
 }
-
 console.log(`I live in a ${houseSize} and that adds ${carbonHouseSizePoints} points to my carbon footprint total.`)
+}
 
-houseSize ("large house")
-houseSize ("apartment")
+
+carbonHousePoints("large house")
+carbonHousePoints("apartment")

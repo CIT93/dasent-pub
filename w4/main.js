@@ -44,12 +44,19 @@ function start(houseHoldMembers, houseSize) {
 }
 
 function displayOutput(){
-
+    for (arr of cfpData){
+        console.log(arr)
+        const output = document.getElementById("output");
+        const newP = document.createElement("p");
+        newP.textContent = `Your total household member is ${arr[0]}, add ${arr[2]} points to your carbon footprint. You live in a ${arr[1]}, add ${arr[3]} to your carbon footprint. Your carbon Footprint total is ${arr[4]}`;
+        output.appendChild(newP)    
+    }
 }
+
 start(5, "apartment");
 start(4, "large hosue");
 start(3, "medium house");
-start(2, "apartment")
+start(2, "apartment");
 
 displayOutput()
 

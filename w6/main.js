@@ -47,7 +47,7 @@ function displayOutObj(obj) {
     newH3.textContent = `Based on number in and size of home`;
     const newP = document.createElement("p");
     newP.textContent = `This number is based on the number of people in the house of ${obj.houseHld} (score: ${obj.houseHldPts}),`;
-    newP.textContent += ` and a ${obj.houseSz} size of home (score:${obj.houseSizePoints}).`;
+    newP.textContent += ` and a ${obj.houseSz} size home (score:${obj.houseSizePoints}).`;
     output.appendChild(newH2);
     output.appendChild(newH3);
     output.appendChild(newP);

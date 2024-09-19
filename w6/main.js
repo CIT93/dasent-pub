@@ -50,28 +50,28 @@ function displayOutObj(obj) {
     newP.textContent += ` and a ${obj.houseSz} size of home (score:${obj.houseSizePoints}).`;
     output.appendChild(newH2);
     output.appendChild(newH3);
-    output.appendChild(newP); 
+    output.appendChild(newP);
 
 }
 
-function start(houseHoldMembers,houseSize,firstName,lastName) {
-    const firstName = FORM.firstname.value;
-    const lastName = FORM.lastname.value;
+function start(houseHoldMembers, houseSize) {
     const houseHoldPoints = carbonHouseholdPts(houseHoldMembers);
     const carbonHouseSizePoints = carbonHousePoints(houseSize);
-    const total = houseHoldPoints + carbonHouseSizePoints
+    const total = houseHoldPoints + carbonHouseSizePoints;
+    const firstName = FORM.firstname.value;
+    const lastName = FORM.lastname.value;
     const cfpStatement = {
         houseHld: houseHoldMembers,
         houseSz: houseSize,
         houseHldPts: houseHoldPoints,
         houseSizePoints: carbonHouseSizePoints,
-        carbTotal: total
-        firstN: firstName;
-        lastN: lastName;
-    }   
-    
+        carbTotal: total,
+        firstN: firstName,
+        lastN: lastName,
+    }
+
     cfpData.push(cfpStatement);
-   
+
 }
 
 function displayOutput() {
@@ -80,23 +80,24 @@ function displayOutput() {
         const newH2 = document.createElement("h2");
         newH2.textContent = `Carbon Footprint total is ${obj.carbTotal}`;
         const newH3 = document.createElement("h3");
-        newH3.textContent = `Based on number in and size of home`;
+        newH3.textContent = `Based on household members and size of home`;
         const newP = document.createElement("p");
-        newP.textContent = `${obj.firstN} ${obj.lastN}This number is based on the number of people in the house of ${obj.houseHld} (score: ${obj.houseHldPts}),`;
-        newP.textContent += ` and a ${obj.houseSz} size of home (score:${obj.houseSizePoints}).`;
+        newP.textContent = `${obj.firstN} ${obj.lastN} the number of people in your house is ${obj.houseHld} (score: ${obj.houseHldPts}),`;
+        newP.textContent += ` and a/an ${obj.houseSz} size of home (score:${obj.houseSizePoints}).`;
         OUTPUT.appendChild(newH2);
         OUTPUT.appendChild(newH3);
         OUTPUT.appendChild(newP);
     }
 }
 
-
-FORM.addEventListener('submit', function (e){
+FORM.addEventListener('submit', function (e) {
     e.preventDefault();
+    const firstName = FORM.firstname.value;
+    const lastName = FORM.lastname.value;
     const houseMembers = parseInt(FORM.housem.value);
     const homeSize = FORM.houses.value;
-    start(houseMembers,homeSize)
+    start(houseMembers, homeSize, firstName, lastName)
     OUTPUT.innerHTML = "";
     displayOutput()
-    FORM.reset()  
+    FORM.reset()
 })

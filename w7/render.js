@@ -1,4 +1,7 @@
 const TBL = document.getElementById("tab-data");
+const FORM = document.getElementById("form");
+import { carbonHousePoints } from "./addcarbonpts.js";
+import { carbonHouseholdPts } from "./addcarbonpts.js";
 
 function renderTblHeading() {
     const table = document.createElement("table");
@@ -9,24 +12,34 @@ function renderTblHeading() {
         const th = document.createElement("th");
         th.textContent = text;
         tr.appendChild(th);
-        console.log(tr)
+        console.log(tr);
+        
     });
 
     thead.appendChild(tr);
     table.appendChild(thead);
-    return table
+    return table;
 }
+
+const firstName = FORM.firstname.value;
+const houseMembers = parseInt(FORM.housem.value);
+const homeSize = FORM.houses.value;
+const houseHoldPoints = carbonHouseholdPts(houseHoldMembers);
+const carbonHouseSizePoints = carbonHousePoints(houseSize);
+const total = houseHoldPoints + carbonHouseSizePoints;
 
 function renderTbl(data) {
     const table = renderTblHeading();
     const tbody = document.createElement("tbody");
     const tr = document.createElement("tr");
-    const trTextArr = ["Dasen", 3, "Large", 20]
+    const trTextArr = [firstName, houseMembers, homeSize, total]
     trTextArr.forEach(function (text) {
         const td = document.createElement("td");
         td.textContent = text;
         tr.appendChild(td);
+        
     })
+    
 
     const td = document.createElement("td");
     const btnEdit = document.createElement("button");
@@ -39,6 +52,7 @@ function renderTbl(data) {
     table.appendChild(tbody);
     tbody.appendChild(tr);
     TBL.appendChild(table);
+    
 }
 
 export { renderTbl };

@@ -37,8 +37,8 @@ function start(houseHoldMembers, houseSize) {
         firstN: firstName,
         lastN: lastName,
     }
-
     cfpData.push(cfpStatement);
+    
 
 }
 
@@ -54,3 +54,5 @@ FORM.addEventListener('submit', function (e) {
     renderTbl(cfpData);
     
 })
+
+

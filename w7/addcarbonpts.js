@@ -31,10 +31,11 @@ function carbonHousePoints(houseSize) {
     } else if (houseSize === "apartment") {
         carbonHouseSizePoints = 2;
     }
+
     return carbonHouseSizePoints
+    
 }
 
-const total = carbonHousePoints + carbonHouseholdPts;
-export {total}
+
 export{carbonHousePoints}
 export{carbonHouseholdPts}

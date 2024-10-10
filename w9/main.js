@@ -23,6 +23,7 @@ function start(firstName, lastName, houseHoldMembers, houseSize) {
 
 renderTbl(cfpData);
 
+
 FORM.addEventListener('submit', function (e) {
     e.preventDefault(); //prevents page from refreshing to keep data
     const firstName = FORM.firstname.value;
@@ -35,4 +36,24 @@ FORM.addEventListener('submit', function (e) {
     FORM.reset();
 
 })
+
+function validateField(event){
+    const field = event.target.value;
+    const fieldId = event.target.id;
+    const fieldError = document.getElementById(`${fieldId}Error`);
+
+    if (field === '') {
+        fieldError.textContent = `${fieldId} is required`;
+        event.target.classList.add('invalid');
+    } else {
+        fieldError.textContent = '';
+        event.target.classList.remove('invalid');
+    }
+};
+const firstNameIsValid = document.getElementById('firstName')
+const lastNameIsValid = document.getElementById('lastName')
+
+firstName.addEventListener('blur', validateField);
+lastName.addEventListener('blur', validateField);
+
 

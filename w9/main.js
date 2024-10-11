@@ -4,6 +4,9 @@ import { carbonHouseholdPts } from "./addcarbonpts.js";
 import { FORM } from "./global.js";
 import { saveLS, cfpData } from "./storage.js";
 
+const firstNameEl = document.getElementById('firstName')
+const lastNameEl= document.getElementById('lastName');
+const submitEl = document.getElementById("submitError");
 
 function start(firstName, lastName, houseHoldMembers, houseSize) {
     const houseHoldPoints = carbonHouseholdPts(houseHoldMembers);
@@ -28,20 +31,28 @@ FORM.addEventListener('submit', function (e) {
     e.preventDefault(); //prevents page from refreshing to keep data
     const firstName = FORM.firstname.value;
     const lastName = FORM.lastname.value;
-    const houseMembers = parseInt(FORM.housem.value);
-    const homeSize = FORM.houses.value;
-    start(firstName, lastName, houseMembers, homeSize,)
-    saveLS(cfpData)
-    renderTbl(cfpData);
-    FORM.reset();
-
+    const firstNameIsValid = firstNameEl.value !== ''; //field needs to be 
+    const lastNameIsValid = lastNameEl.value !== ''; 
+    if (firstNameIsValid && lastNameIsValid){ 
+        submitEl.textContent = '';
+        const houseMembers = parseInt(FORM.housem.value);
+        const homeSize = FORM.houses.value;
+        start(firstName, lastName, houseMembers, homeSize,)
+        saveLS(cfpData)
+        renderTbl(cfpData);
+        FORM.reset(); 
+    } else {
+        submitEl.textContent = "Form requires first name and last name";
+        
+    }
 })
+
+//Function to validate a single field
 
 function validateField(event){
     const field = event.target.value;
     const fieldId = event.target.id;
     const fieldError = document.getElementById(`${fieldId}Error`);
-
     if (field === '') {
         fieldError.textContent = `${fieldId} is required`;
         event.target.classList.add('invalid');
@@ -50,10 +61,8 @@ function validateField(event){
         event.target.classList.remove('invalid');
     }
 };
-const firstNameIsValid = document.getElementById('firstName')
-const lastNameIsValid = document.getElementById('lastName')
 
-firstName.addEventListener('blur', validateField);
-lastName.addEventListener('blur', validateField);
+firstNameEl.addEventListener('blur', validateField);
+lastNameEl.addEventListener('blur', validateField);
 
 

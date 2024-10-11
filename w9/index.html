@@ -7,11 +7,7 @@
     <title>Week 9 - Custom Form Validation </title>
     <link rel="stylesheet" href="style.css">
     <script type="module" src="main.js" defer></script>
-    <style>
-        .error {
-            color: red;
-        }
-    </style>
+
 </head>
 
 <body>
@@ -20,12 +16,12 @@
             <legend>Calculating Your Carbon Footprint</legend>
             <div>
                 <label for="">First Name:</label>
-                <input type="text" id="firstName" minlength="1" maxlength="20">
-                <span id="firstNameError" class="error"></span>
+                <input type="text" name="firstname" id="firstName" minlength="1" maxlength="20">
+                <span id="firstNameError" class="error"></span>  
             </div>
             <div>
                 <label>Last Name:</label>
-                <input type="text" id="lastName" minlength="1" maxlength="20">
+                <input type="text" name="lastname" id="lastName" minlength="1" maxlength="20">
                 <span id="lastNameError" class="error"></span>
             </div>
             <div>
@@ -43,7 +39,8 @@
                     <option value="apartment">Apartment</option>
                 </select>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit">Submit</button><br>
+            <span id="submitError" class="error"></span>
         </fieldset>
     </form>
     <div id="output"></div>

@@ -22,3 +22,6 @@ tbody tr:nth-child(odd){
 .error {
     color: red;
 }
+.invalid {
+    border-color: red;
+}

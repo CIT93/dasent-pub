@@ -3,7 +3,7 @@ import { carbonHousePoints, carbonHouseholdPts } from "./addcarbonpts.js";
 import { FORM, FNAME, LNAME, SUBMIT } from "./global.js";
 import { saveLS, cfpData } from "./storage.js";
 
-const start = function(firstName, lastName, houseHoldMembers, houseSize) {
+const start = (firstName, lastName, houseHoldMembers, houseSize) => {
     const houseHoldPoints = carbonHouseholdPts(houseHoldMembers);
     const carbonHouseSizePoints = carbonHousePoints(houseSize);
     const total = houseHoldPoints + carbonHouseSizePoints;
@@ -22,7 +22,7 @@ const start = function(firstName, lastName, houseHoldMembers, houseSize) {
 renderTbl(cfpData);
 
 
-FORM.addEventListener('submit', function (e) {
+FORM.addEventListener('submit', e => {
     e.preventDefault(); //prevents page from refreshing to keep data
     if (FNAME.value !== '' && LNAME.value !== ''){ 
         SUBMIT.textContent = '';
@@ -38,7 +38,7 @@ FORM.addEventListener('submit', function (e) {
 
 //Function to validate a single field
 
-const validateField = function(event){
+const validateField = event => {
     const field = event.target.value;
     const fieldId = event.target.id;
     const fieldError = document.getElementById(`${fieldId}Error`);
@@ -54,21 +54,19 @@ const validateField = function(event){
 FNAME.addEventListener('blur', validateField);
 LNAME.addEventListener('blur', validateField);
 
-const add2 = function(...a) { //a=10 is a default value
+// rest operator
+// const add2 = function(...a) { //a=10 is a default value
 
-    return 2+a[3]; // returns the value back to add2
+//     return 2+a[3]; // returns the value back to add2
 
-    }
+//     }
 
-    const result = add2(1,2,3,4);
+//     const result = add2(1,2,3,4);
 
+//IIFE
+//  const a = 3;
 
-    // spread argument
-
-    //IIFE
- const a = 3;
-
-(function (a) {
-    console.log("inside IIFE");
-    console.log(a);
-})(a);
+// (function (a) {
+//     console.log("inside IIFE");
+//     console.log(a);
+// })(a);

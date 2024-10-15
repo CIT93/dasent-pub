@@ -1,4 +1,4 @@
-const carbonHouseholdPts = function(numberInHousehold) {
+const carbonHouseholdPts = (numberInHousehold = 1) => {
     let houseHoldPoints = 0;
     if (numberInHousehold === 1) {
         houseHoldPoints = 14;
@@ -18,7 +18,7 @@ const carbonHouseholdPts = function(numberInHousehold) {
     return houseHoldPoints
 }
 
-const carbonHousePoints = function(houseSize) {
+const carbonHousePoints = (houseSize = "apartment" ) => {
   
     let carbonHouseSizePoints = 0;
 

@@ -49,7 +49,7 @@ const renderTblBtn = (obj,index,data) => {
 
 const renderTblBody = (data) => {
     const tbody = document.createElement("tbody");
-    data.forEach(function (obj,index) {
+    data.forEach((obj,index) => {
         console.log(index)
         const tr = document.createElement("tr");
         for (const [key, value] of Object.entries(obj)) {

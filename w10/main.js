@@ -3,15 +3,31 @@ import { carbonHousePoints, carbonHouseholdPts } from "./addcarbonpts.js";
 import { FORM, FNAME, LNAME, SUBMIT } from "./global.js";
 import { saveLS, cfpData } from "./storage.js";
 
-const start = (firstName, lastName, houseHoldMembers, houseSize) => {
-    const houseHoldPoints = carbonHouseholdPts(houseHoldMembers);
-    const carbonHouseSizePoints = carbonHousePoints(houseSize);
+// const start = (firstName, lastName, houseHoldMembers, houseSize) => {
+//     const houseHoldPoints = carbonHouseholdPts(houseHoldMembers);
+//     const carbonHouseSizePoints = carbonHousePoints(houseSize);
+//     const total = houseHoldPoints + carbonHouseSizePoints;
+//     cfpData.push({
+//         firstN: firstName,
+//         lastN: lastName,
+//         houseHld: houseHoldMembers,
+//         houseSz: houseSize,
+//         houseHldPts: houseHoldPoints,
+//         houseSizePoints: carbonHouseSizePoints,
+//         carbTotal: total,
+//     });
+
+// }
+
+const start = (...i) => {
+    const houseHoldPoints = carbonHouseholdPts(i[2]);
+    const carbonHouseSizePoints = carbonHousePoints(i[3]);
     const total = houseHoldPoints + carbonHouseSizePoints;
     cfpData.push({
-        firstN: firstName,
-        lastN: lastName,
-        houseHld: houseHoldMembers,
-        houseSz: houseSize,
+        firstN: i[0],
+        lastN: i[1],
+        houseHld: i[2],
+        houseSz: i[3],
         houseHldPts: houseHoldPoints,
         houseSizePoints: carbonHouseSizePoints,
         carbTotal: total,

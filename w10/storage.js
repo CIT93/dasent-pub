@@ -1,4 +1,4 @@
-const saveLS = (...cfpData) => {
+const saveLS = (cfpData) => {
     const serializedArr = JSON.stringify(cfpData); //converting cfpData, which is an object, into a string representation 
     localStorage.setItem("cfp", serializedArr); //cfp is the key, serializedArr is the value
 }

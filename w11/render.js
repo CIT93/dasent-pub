@@ -1,10 +1,11 @@
 import {FORM,TBL} from "./global.js" 
 import {saveLS} from "./storage.js"
+
 const renderTblHeading = function () {
     const table = document.createElement("table");
     const thead = document.createElement("thead");
     const tr = document.createElement("tr");
-    const headingTextArr = ["Name", "Household", "HouseSize", "Footprint", "Actions"];
+    const headingTextArr = ["Name", "Household", "HouseSize", "Food Choice", "Footprint", "Actions"];
     headingTextArr.forEach(function (text) {
         const th = document.createElement("th");
         th.textContent = text;
@@ -39,6 +40,7 @@ const renderTblBtn = function (obj,index,data) {
         FORM.lastName.value = obj.last;
         FORM.housem.value = obj.houseMembers;
         FORM.houses.value = obj.houseSize;
+        FORM.foodChoice.value = obj.foodChoice;
         onUpdate(index,data);
 
 
@@ -53,7 +55,7 @@ const renderTblBody = function(data) {
         console.log(index)
         const tr = document.createElement("tr");
         for (const [key, value] of Object.entries(obj)) {
-            if (key !== "last" && key !== "houseHoldPoints" && key !== "carbonHouseSizePoints") {
+            if (key !== "last" && key !== "houseHoldPoints" && key !== "carbonHouseSizePoints" && key !== "foodCarbonTotal") {
                 const td = document.createElement("td");
                 td.textContent = value;
                 tr.appendChild(td);
@@ -76,4 +78,4 @@ const renderTbl = function(data) {
     } 
 }
 
-export { renderTbl }
+export { renderTbl, renderTblHeading }

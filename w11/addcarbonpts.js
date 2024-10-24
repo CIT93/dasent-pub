@@ -36,6 +36,24 @@ const carbonHousePoints = function(houseSize) {
     
 }
 
+const foodCarbonTotal = function(foodChoice) {
+  
+    let foodCarbonPoints = 0;
+    
+    if (foodChoice === "meat daily basis") {
+        foodCarbonPoints = 10;
+    } else if (foodChoice === "meat few times") {
+        foodCarbonPoints = 8;
+    } else if (foodChoice === "vegetarian") {
+        foodCarbonPoints = 4;
+    } else if (foodChoice === "vegan or wild meat") {
+        foodCarbonPoints = 2;
+    }
+
+    return foodCarbonPoints
+    
+}
 
 export{carbonHousePoints}
 export{carbonHouseholdPts}
+export{foodCarbonTotal}

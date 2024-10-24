@@ -55,7 +55,7 @@ const renderTblBody = function(data) {
         console.log(index)
         const tr = document.createElement("tr");
         for (const [key, value] of Object.entries(obj)) {
-            if (key !== "last" && key !== "houseHoldPoints" && key !== "carbonHouseSizePoints" && key !== "foodCarbonTotal") {
+            if (key !== "last" && key !== "houseHoldPoints" && key !== "houseSizePoints" && key !== "foodCarbonTotal") {
                 const td = document.createElement("td");
                 td.textContent = value;
                 tr.appendChild(td);

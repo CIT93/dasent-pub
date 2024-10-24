@@ -30,13 +30,13 @@ class FP {
     }
     houseSizePoints() {
         if (this.houseSize === "large house") {
-            this.carbonHouseSizePoints = 10;
+            this.houseSizePoints = 10;
         } else if (this.houseSize === "medium house") {
-            this.carbonHouseSizePoints = 7;
+            this.houseSizePoints = 7;
         } else if (this.houseSize === "small house") {
-            this.carbonHouseSizePoints = 4;
+            this.houseSizePoints = 4;
         } else if (this.houseSize === "apartment") {
-            this.carbonHouseSizePoints = 2;
+            this.houseSizePoints = 2;
         }
     }
     

@@ -18,7 +18,7 @@ getUsers()
 function renderUsers(data) {
     data.forEach((user) => {
         const objUsers = document.createElement("h1")
-        objUsers.textContent = [user.name, user.phone]
+        objUsers.textContent = `${user.name} - Phone: ${user.phone}`
         document.getElementById("output").append(objUsers)
     });
 

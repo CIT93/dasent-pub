@@ -1,22 +1,24 @@
 async function getUsers() {
     try {
         const response = await fetch('https://jsonplaceholder.typicode.com/users');
-        onSuccess(data);
+        const data = await response.json();
+        if(!data.length){
+            console.log("Error on return value") 
+        } else{
+            onSuccess(data);
+        }
     }
     catch (error) {
         console.log(`ERROR: ${error}`)
     }
-
-    const data = await response.json();
-    console.log(data)
-
 }
+
 getUsers()
 
-function renderUsers(getUsers) {
-    data.forEach(user => {
+function renderUsers(data) {
+    data.forEach((user) => {
         const objUsers = document.createElement("h1")
-        objUsers.textContent = getUsers
+        objUsers.textContent = user.name
         document.getElementById("output").append(objUsers)
     });
 

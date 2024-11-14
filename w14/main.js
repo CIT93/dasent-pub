@@ -18,12 +18,16 @@ getUsers()
 function renderUsers(data) {
     data.forEach((user) => {
         const objUsers = document.createElement("h1")
-        objUsers.textContent = user.name
+        objUsers.textContent = [user.name, user.phone]
         document.getElementById("output").append(objUsers)
     });
 
 }
 
 function onSuccess(data){
-    renderUsers(data)
+    renderUsers(data);
+}
+
+function onError(err) {
+    console.log(`Error ${err})`);
 }

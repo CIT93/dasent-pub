@@ -17,10 +17,27 @@ const start = function(firstName, lastName, houseHoldMembers, houseSize) {
         houseSizePoints: carbonHouseSizePoints,
         carbTotal: total,
     });
+    
+    const cfpDataMap = carbTotal.map(data => {
+        return data.length
+    }  )
+    console.log(cfpDataMap);
 
 }
 
+
 renderTbl(cfpData);
+
+function addRow (tableID){
+let tableRender = document.getElementById(tableID)
+let newRow = tableRender.insertRow(-1)
+let newCell = newRow.insertCell(0);
+let newText = document.createTextNode("Average Points");
+newCell.appendChild(newText);
+}
+
+addRow("myTable")
+
 
 FORM.addEventListener('submit', function (e) {
     e.preventDefault(); //prevents page from refreshing to keep data

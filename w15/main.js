@@ -1,4 +1,4 @@
-import { renderTbl } from "./render.js";
+import { renderTbl} from "./render.js";
 import { carbonHousePoints, carbonHouseholdPts} from "./addcarbonpts.js";
 import { FORM, FNAME, LNAME, SUBMIT } from "./global.js";
 import { saveLS, cfpData } from "./storage.js";
@@ -17,26 +17,11 @@ const start = function(firstName, lastName, houseHoldMembers, houseSize) {
         houseSizePoints: carbonHouseSizePoints,
         carbTotal: total,
     });
-    
-    const cfpDataMap = carbTotal.map(data => {
-        return data.length
-    }  )
-    console.log(cfpDataMap);
-
 }
 
 
 renderTbl(cfpData);
 
-function addRow (tableID){
-let tableRender = document.getElementById(tableID)
-let newRow = tableRender.insertRow(-1)
-let newCell = newRow.insertCell(0);
-let newText = document.createTextNode("Average Points");
-newCell.appendChild(newText);
-}
-
-addRow("myTable")
 
 
 FORM.addEventListener('submit', function (e) {

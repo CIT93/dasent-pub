@@ -3,6 +3,7 @@ import {saveLS} from "./storage.js"
 
 const renderTblHeading = function () {
     const table = document.createElement("table");
+    table.setAttribute("id", "table-id");
     const thead = document.createElement("thead");
     const tr = document.createElement("tr");
     const headingTextArr = ["Name", "Household", "HouseSize", "Food Choice", "Footprint", "Actions"];
@@ -73,7 +74,24 @@ const renderTbl = function(data) {
         const tbody = renderTblBody(data);
         table.appendChild(tbody);
         TBL.appendChild(table);
+        calculateAvg(data);
     } 
 }
 
-export { renderTbl, renderTblHeading }
+const calculateAvg = (data) => {
+    const reduceTotal = data.reduce ((sum,ea) => sum + ea.total,0);
+    const tableRef = document.getElementById("table-id");
+    let newRow = tableRef.insertRow(-1);
+    let newCell = newRow.insertCell(0);
+    let newCell1 = newRow.insertCell(0);
+    let newCell2 = newRow.insertCell(0);
+    let newCell3 = newRow.insertCell(0);
+    let newCell4 = newRow.insertCell(0);
+    let newLabl = document.createTextNode('Average FootPrint');
+    let newText = document.createTextNode(`${Math.floor(reduceTotal/data.length)}`);
+    newCell1.appendChild(newLabl);
+    newCell.appendChild(newText);
+  
+  }
+
+export { renderTbl, renderTblHeading}

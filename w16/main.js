@@ -18,6 +18,8 @@ FORM.addEventListener('submit', function (e) {
             e.target.houses.value, 
             e.target.foodChoice.value, 
             e.target.foodSource.value, 
+            e.target.houseItem.value,
+            e.target.checkbox.value,
             parseInt(e.target.water.value));
         cfpData.push(fpObj)
         saveLS(cfpData);

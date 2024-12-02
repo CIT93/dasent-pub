@@ -43,10 +43,10 @@ const renderTblBtn = function (obj,index,data) {
         FORM.houses.value = obj.houseSize;
         FORM.foodChoice.value = obj.foodChoice;
         FORM.foodSource.value = obj.foodSource;
-        FORM.water.value = obj.waterConsumPoints.toString();
-        FORM.houseItem.value = obj.houseItem.toString();
+        FORM.water.value = obj.waterValue;
+        FORM.dish_washer.checked = obj.both;
+        FORM.houseItem.value = obj.houseItemPts;
         onUpdate(index,data);
-
 
     })
 
@@ -88,8 +88,6 @@ const calculateAvg = (data) => {
     let newTD = newTR.insertCell(0);
     let newTD1 = newTR.insertCell(0);
     let newTD2 = newTR.insertCell(0);
-    // let newTD3 = newTR.insertCell(0);
-    // let newTD4 = newTR.insertCell(0);
     let newLabl = document.createTextNode('Average FootPrint');
     let newText = document.createTextNode(`${Math.floor(reduceTotal/data.length)}`);
     newTD1.appendChild(newLabl);

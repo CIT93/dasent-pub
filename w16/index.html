@@ -60,7 +60,7 @@
             </div>
             <div>
                 <label>Water Consumption</label>
-                <select name="water" required>
+                <select name="water" id="water" required>
                     <option value="">---How many times you run dishwasher or washing machine---</option>
                     <option value="4">More than 9 times per week</option>
                     <option value="2">Between 4 to 9 times per week</option>
@@ -69,8 +69,8 @@
                 </select>
             </div>
             <div>
-                <input type="checkbox" id="checkbox" checked />
-                <label>You have a dishwasher and washing machine.</label>
+                <label for=""dish_washer">You have a dishwasher and washing machine.</label>
+                <input type="checkbox" name="dish_washer" id="both" checked>
               </div>
               <div>
                 <label>Household Purchases</label>
@@ -81,7 +81,7 @@
                     <option value="6">Between 3 and 5 new household items</option>
                     <option value="2">Only secondhand items or almost nothing at all</option>
                 </select>
-            </div>
+            <br>
             <button type="submit">Submit</button><br>
             <span id="submitError" class="error"></span>
         </fieldset>

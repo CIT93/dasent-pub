@@ -1,6 +1,6 @@
 import { renderTbl} from "./render.js";
 import { carbonHousePoints, carbonHouseholdPts} from "./addcarbonpts.js";
-import { FORM, FNAME, LNAME, SUBMIT } from "./global.js";
+import { FORM, FNAME, LNAME, SUBMIT, WATER, BOTH } from "./global.js";
 import { saveLS, cfpData } from "./storage.js";
 import { FP} from "./fp.js";  
 renderTbl(cfpData);
@@ -18,13 +18,18 @@ FORM.addEventListener('submit', function (e) {
             e.target.houses.value, 
             e.target.foodChoice.value, 
             e.target.foodSource.value, 
-            e.target.houseItem.value,
-            e.target.checkbox.value,
-            parseInt(e.target.water.value));
+            e.target.water.value,
+            e.target.dish_washer.checked ? parseInt(e.target.water.value) * 2 : parseInt(e.target.water.value),
+            e.target.dish_washer.checked,
+            parseInt(e.target.houseItem.value)
+        );
+
         cfpData.push(fpObj)
         saveLS(cfpData);
         renderTbl(cfpData);
         FORM.reset(); 
+        BOTH.disabled = false;
+
     } else {
         SUBMIT.textContent = "Form requires first name and last name";
         
@@ -46,3 +51,12 @@ const validateField = function(event){
 
 FNAME.addEventListener('blur', validateField);
 LNAME.addEventListener('blur', validateField);
+
+
+WATER.addEventListener("change", e => {
+    if (parseInt(WATER.value)===0){
+        BOTH.disabled = true;
+    } else {
+        BOTH.disabled = false;
+    }
+})

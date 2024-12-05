@@ -120,9 +120,44 @@
                     Food Waste
                 </label>
             </fieldset>
-            <button type="submit">Submit</button><br>
-            <span id="submitError" class="error"></span>
+            <fieldset>
+                <Legend>Your Annual Transportation Score</Legend>
+                <div>
+                    <label>Personal Vehicle</label>
+                    <select name="myCar" required>
+                        <option value="">---Miles travel with your Car---</option>
+                        <option value="12">Travel more than 15,000 miles annually</option>
+                        <option value="10">Travel between 10,000-15,000 miles annually</option>
+                        <option value="6">Travel between 1,000-10,000 miles annually</option>
+                        <option value="4">Travel less than 1,000 miles annually</option>
+                        <option value="0">I don't own a vehicle</option>
+    
+                    </select>
+                </div>
+                <div>
+                    <label>Public Transportation</label>
+                    <select name="pubTrans" required>
+                        <option value="">---Miles travel with Public Transportation---</option>
+                        <option value="12">Travel more than 20,000 miles annually</option>
+                        <option value="10">Travel between 15,000-20,000 miles annually</option>
+                        <option value="6">Travel between 10,000-15,000 miles annually</option>
+                        <option value="4>Travel between 1,000-10,000 miles annually</option>
+                        <option value="0">I don't use public transportation</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Annual Flights</label>
+                    <select name="airplane" required>
+                        <option value="">---Flight distance---</option>
+                        <option value="2">I fly within my state boundary</option>
+                        <option value="6">I fly to nearby states or boarding country</option>
+                        <option value="20">I fly to another continent</option>
+                    </select>
+                </div>
+            </fieldset>
         </fieldset>
+        <button type="submit">Submit</button><br>
+        <span id="submitError" class="error"></span>
     </form>
     <div id="tab-data"></div>
     <table id="table-id"></table>

@@ -23,6 +23,9 @@ FORM.addEventListener('submit', function (e) {
             e.target.dish_washer.checked,
             parseInt(e.target.houseItem.value),
             parseInt(e.target.garbage.value),
+            parseInt(e.target.myCar.value),
+            parseInt(e.target.pubTrans.value),
+            parseInt(e.target.airplane.value),
             determineRecycleItems(e)
         );
 

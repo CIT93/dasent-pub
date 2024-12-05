@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Final Decision App</title>
+    <script type="module" defer src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="form">
+        <fieldset>
+            <legend> Determine Dinner Tonight</legend>
+            <div>
+                <label for=""> Energy Level</label>
+                <input type="number" id="eneLvl" min="1" max="10" required>
+                <span id="eneLvlError" class="error"></span>
+            </div>
+            <div>
+                <label for=""> Dinner budget </label>
+                <input type="number" id="dinBud" min="5" max="40" required>
+                <span id="dinBudError" class="error"></span>
+            </div>
+            <div>
+                <label for="">Did you prep dinner? </label>
+                <select id="dinPrep" required>
+                    <option value="">---True/False---</option>
+                    <option value= true> True</option>
+                    <option value= false> False</option>
+                </select>
+            </div>
+            <button type="submit">Submit</button><br>
+            <span id="submitError" class="error"></span>
+        </fieldset>
+    </form>
+    <div id="OUTPUT"></div>
+</body>
+</html>

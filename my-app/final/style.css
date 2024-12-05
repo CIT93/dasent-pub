@@ -1,0 +1,25 @@
+table, th, td {
+    border: 5px solid;
+    padding: 5px;
+}
+tbody tr:nth-child(odd){
+    background-color: #f7f30d;
+}
+.error {
+    color: red;
+}
+.invalid {
+    border: 5px solid;
+    border-color: red;
+}
+html{
+    font-size: 22px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #d4d3d0;
+    color:rgb(7, 1, 1);
+}
